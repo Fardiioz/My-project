@@ -186,7 +186,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="col-md-12">
           <label for="current_password" class="form-label">Password Saat Ini (untuk verifikasi perubahan)</label>
-          <input type="password" name="current_password" class="form-control" required>
+          <div class="input-group">
+            <input type="password" name="current_password" class="form-control" id="current_password" required>
+            <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPass">👁</button>
+          </div>
         </div>
       </div>
 
@@ -205,6 +208,14 @@ toggleBtn.addEventListener('click', () => {
   const type = passInput.type === 'password' ? 'text' : 'password';
   passInput.type = type;
   toggleBtn.textContent = type === 'password' ? '👁' : '🙈';
+});
+
+const toggleCurrentBtn = document.getElementById('toggleCurrentPass');
+const currentPassInput = document.getElementById('current_password');
+toggleCurrentBtn.addEventListener('click', () => {
+  const type = currentPassInput.type === 'password' ? 'text' : 'password';
+  currentPassInput.type = type;
+  toggleCurrentBtn.textContent = type === 'password' ? '👁' : '🙈';
 });
 </script>
 
